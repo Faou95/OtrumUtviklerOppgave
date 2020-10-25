@@ -1,7 +1,6 @@
 var app = new Vue({
       // element, det javascript koden skal mounte seg opp til
       el: '#app',
-      vuetify: new Vuetify(),
       // Data, brukes i expressions for å hente data fra JS
       data: {
         // en liste med personer som vi bruker senere

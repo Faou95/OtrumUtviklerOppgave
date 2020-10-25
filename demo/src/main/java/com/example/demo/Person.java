@@ -3,15 +3,16 @@ package com.example.demo;
 public class Person {
     // en statisk integer som itererer for hver person objekt (brukes for ID)
     private static int count = 0;
-    int id;
-    String navn;
-    int alder;
+    private int id;
+    private String navn;
+    private int alder;
 
     public Person(String navn, int alder){
         // itererer og setter id
-        id = ++count;
+        id = count++;
         this.navn = navn;
         this.alder = alder;
+        System.out.println(id);
     }
 
     public int getId() {
