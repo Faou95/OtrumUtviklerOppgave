@@ -67,3 +67,22 @@ Begge feltene tar i bruk @change som vil kjøre en funksjon etter feltet har bli
 Etter et felt har blitt forandret, så går vi gjennom front-end sin person liste og sammenligner ID for å finne ut hvilken person som endret navn/alder. Etter det så setter den bare this.personer[i].navn/alder = navn/alder
 
 Dette blir ikke lagret før man klikker Save.
+
+Lekte litt rundt i front-end men fikk ikke alt til å se ut som det jeg ville. Alt er funksjonelt så er fornøyd nok.
+
+Lagde Rules (regler) for hva som er gyldig input for navn og alder
+
+La til Axios for å se åssen det funker iforhold til Fetch API.
+Brukte CDN for å importere Axios (<script src="https://unpkg.com/axios/dist/axios.min.js"></script>)
+Axios funket veldig bra med en veldig lett syntax (lignende Fetch API)
+Byttet Delete metoden i backend og frontend sånn at front-end sender et DELETE kall og back-end tar imot et DELETE kall med @DeleteMapping notasjonen.
+
+
+
+TODO!!
+front-end: enten droppe Vuetify og bruke tradisjonell CSS eller installere Vuetify og Vue på en bedre måte enn CDN (CLI for eksempel). Endre utseende for å matche oppgaven.
+Bruke HashMap i back-end i stedet for liste sånn at man kan lettere slette og endre på brukere.
+Endre sånn at Save funksjonen i front-end vil sjekke om input er gyldig før man sender til back-end.
+Fjerne Slett knappen når man legger til en ny person (kanskje ved bruk av components).
+Kanskje ta i bruk Hibernate for on-memory lagring.
+
