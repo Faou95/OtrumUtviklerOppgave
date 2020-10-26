@@ -80,6 +80,7 @@ Byttet Delete metoden i backend og frontend sånn at front-end sender et DELETE 
 
 
 TODO!!
+
 front-end: enten droppe Vuetify og bruke tradisjonell CSS eller installere Vuetify og Vue på en bedre måte enn CDN (CLI for eksempel). Endre utseende for å matche oppgaven.
 Bruke HashMap i back-end i stedet for liste sånn at man kan lettere slette og endre på brukere.
 Endre sånn at Save funksjonen i front-end vil sjekke om input er gyldig før man sender til back-end.
