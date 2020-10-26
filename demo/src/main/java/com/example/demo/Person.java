@@ -12,7 +12,6 @@ public class Person {
         id = count++;
         this.navn = navn;
         this.alder = alder;
-        System.out.println(id);
     }
 
     public int getId() {

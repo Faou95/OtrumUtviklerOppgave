@@ -8,16 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
-    <!-- må ligge inni en v-app for at Vuetify skal funke -->
+    <!-- V-app er en wrapper for Vuetify. Må brukes for at Vuetify skal funke med CDN -->
     <v-app>
-        <!-- id app er der javascriptet hooker seg til -->
-        <div id="app"></div>
+        <v-main>
+            <!-- id app er der javascriptet hooker seg til -->
+            <div id="app"></div>
+        </v-main>
     </v-app>
+
 
     <!-- CDN for Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <!-- CDN for Vuetify -->
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <!-- CDN for Axios (HTTP REQUESTS) -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- javascript koden som brukes med vue -->
     <script src="./vuetifyMain.js"> </script>
 </body>

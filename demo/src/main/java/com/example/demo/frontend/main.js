@@ -1,3 +1,5 @@
+// DEPRECATED
+
 var app = new Vue({
       // element, det javascript koden skal mounte seg opp til
       el: '#app',

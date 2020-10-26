@@ -1,11 +1,10 @@
 
 package com.example.demo;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.catalina.connector.Response;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,26 +18,27 @@ import java.util.List;
 @RestController
 public class DemoApplication {
 	// ArrayList som inneholder alle personer
-	List<Person> personListe = new ArrayList<>();
+	private List<Person> personListe = new ArrayList<>();
 	// main funksjon som kjører applikasjonen
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	// REST GET som sender person listen til front-end
+	// HTTP GET REQUEST (definert med @GetMapping notasjonen) som sender en liste med personer
 	@GetMapping("/PersonListe")
 	public List<Person> personListe() {
 		return personListe;
 	}
 
-	// REST GET (skal egentlig være DELETE, men funker ikke enda med Fetch API) som sletter en person ved å sammenligne ID
-	@GetMapping("/SlettPerson")
+	// HTTP DELETE REQUEST (definert med @DeleteMapping notasjonen) som sletter en person ved å sammenligne ID
+	@DeleteMapping("/SlettPerson")
 	// @RequestParam vil hente inn ID
-	public void slettPerson(@RequestParam(value = "id") int id){
-		personListe.removeIf(p -> p.getId() == id);
+	public int slettPerson(@RequestParam(value = "id") int id){
+		personListe.removeIf(p -> p.getId() == (id));
+		return Response.SC_OK;
 	}
 
-	// REST POST som vil få inn en JSON liste med personer fra front-end i @RequestBody
+	// HTTP POST REQUEST som vil få inn en JSON liste med person fra front-end i @RequestBody
 	@PostMapping(path = "/leggTilPerson", consumes = "application/json")
 	public void leggTilPerson(@RequestBody List<Person> person){
 		// Sletter alle personer fra back-end sin person liste
@@ -46,7 +46,6 @@ public class DemoApplication {
 		// Legger til alle personer fra front-end sin person liste
 		for (Person p : person) {
 			personListe.add(new Person(p.getNavn(), p.getAlder()));
-			System.out.println(p.getNavn());
 		}
 	}
 
